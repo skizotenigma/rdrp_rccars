@@ -17,6 +17,9 @@
 - camaera system revamped to show a range indicator on screen.
 - camera will start to lose connection the farther away you get.
 
+![Screenshot Indicator](https://godhatesfags.church/exYDZha7YjmRhDz.png)
+![Screenshot Camera Fade](https://godhatesfags.church/BeKMkSqbnghXmYU.png)
+
 ## Download & Installation
 
 ### Using Git
@@ -37,6 +40,7 @@ start rdrp_rccars
 
 ![Screenshot Driving](https://godhatesfags.church/P14syWlWn75lTHS.jpg)
 ![Screenshot Camera](https://godhatesfags.church/zJShnEEtf4qLSl4.jpg)
+
 
 
 
