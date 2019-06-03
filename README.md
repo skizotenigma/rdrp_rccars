@@ -10,6 +10,12 @@
 - You steer it with UP, DOWN, LEFT, RIGHT -> Arrows.
 - It's synced everyone will see your tablet and rccar.
 
+-- skizot's updates!
+- now randomly selects body and color.
+- camaera system revamped.
+-- now shows a range indicator on screen.
+-- camera will start to lose connection the farther away you get.
+
 ## Download & Installation
 
 ### Using Git
