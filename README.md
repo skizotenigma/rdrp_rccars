@@ -11,9 +11,10 @@
 - It's synced everyone will see your tablet and rccar.
 
 ### skizot's updates!
+- Item completely setup for ESX. (/rc no longer works)
+- car nolonger spawns directly under you.
 - now randomly selects body and color.
-- camaera system revamped.
-- now shows a range indicator on screen.
+- camaera system revamped to show a range indicator on screen.
 - camera will start to lose connection the farther away you get.
 
 ## Download & Installation
