@@ -193,9 +193,11 @@ RCCar.Spawn = function()
 	SetEntityVisible(RCCar.Driver, false)
 	FreezeEntityPosition(RCCar.Driver, true)
 	SetPedAlertness(RCCar.Driver, 0.0)
+	TaskSetBlockingOfNonTemporaryEvents(RCCar.Driver,true)
+
 	TaskWarpPedIntoVehicle(RCCar.Driver, RCCar.Entity, -1)
 
-	-- this make it so you can't get in the rc cars.
+	-- fixes players getting into rc cars
 	SetVehicleDoorsLockedForAllPlayers(RCCar.Entity, true)
 
 	while not IsPedInVehicle(RCCar.Driver, RCCar.Entity) do
@@ -203,7 +205,7 @@ RCCar.Spawn = function()
 	end
 
 	-- this fixes the driver getting out.
-	SetEntityCoords(RCCar.Driver, 0, 0, -200, 0, 0, 0, false)
+	SetEntityCoords(RCCar.Driver, 0, 0, 0, 0, 0, 0, false)
 
 	RCCar.Attach("place")
 end
@@ -291,7 +293,7 @@ RCCar.ToggleCamera = function(boolean)
 
 		RCCar.Camera = CreateCam("DEFAULT_SCRIPTED_CAMERA", true)
 
-		AttachCamToEntity(RCCar.Camera, RCCar.Entity, 0.0, 0.0, 0.4, true)
+		AttachCamToEntity(RCCar.Camera, RCCar.Entity, 0.0, 0.1, 0.4, true)
 
 		Citizen.CreateThread(function()
 			while DoesCamExist(RCCar.Camera) do
