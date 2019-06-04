@@ -193,13 +193,17 @@ RCCar.Spawn = function()
 	SetEntityVisible(RCCar.Driver, false)
 	FreezeEntityPosition(RCCar.Driver, true)
 	SetPedAlertness(RCCar.Driver, 0.0)
-	TaskSetBlockingOfNonTemporaryEvents(RCCar.Driver,false)
-
 	TaskWarpPedIntoVehicle(RCCar.Driver, RCCar.Entity, -1)
+
+	-- this make it so you can't get in the rc cars.
+	SetVehicleDoorsLockedForAllPlayers(RCCar.Entity, true)
 
 	while not IsPedInVehicle(RCCar.Driver, RCCar.Entity) do
 		Citizen.Wait(0)
 	end
+
+	-- this fixes the driver getting out.
+	SetEntityCoords(RCCar.Driver, 0, 0, -200, 0, 0, 0, false)
 
 	RCCar.Attach("place")
 end
