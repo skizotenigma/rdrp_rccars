@@ -51,6 +51,10 @@ RCCar.HandleKeys = function(distanceCheck)
 			RCCar.Attach("pick")
 			TriggerServerEvent('rdrp_rccars:get')
 		end
+	else
+		if IsControlJustPressed(0, 38) then
+			RCCar.Attach("kapat")
+		end
 	end
 
 	if distanceCheck < Config.LoseConnectionDistance then
@@ -125,6 +129,10 @@ RCCar.DrawInstructions = function(distanceCheck)
 		{
 			["label"] = "Toggle Camera",
 			["button"] = "~INPUT_DETONATE~"
+		},
+		{
+			["label"] = "Kapat",
+			["button"] = "~INPUT_CONTEXT~"
 		}
 	}
 
@@ -173,6 +181,7 @@ RCCar.Spawn = function()
 
 	local spawnCoords, spawnHeading = GetEntityCoords(PlayerPedId()) + GetEntityForwardVector(PlayerPedId()) * 3.0, GetEntityHeading(PlayerPedId())
 
+	--RCCar.Entity = CreateVehicle(GetHashKey("rcmavic"), spawnCoords, spawnHeading, true)
 	RCCar.Entity = CreateVehicle(GetHashKey("rcbandito"), spawnCoords, spawnHeading, true)
 
 	---adds randomness to the cars.
@@ -252,6 +261,16 @@ RCCar.Attach = function(param)
 		DeleteVehicle(RCCar.Entity)
 		DeleteEntity(RCCar.Driver)
 
+		RCCar.UnloadModels()
+	elseif param == "kapat" then
+		if DoesCamExist(RCCar.Camera) then
+			RCCar.ToggleCamera(false)
+		end
+		RCCar.Tablet(false)
+		Citizen.Wait(100)	
+		DetachEntity(RCCar.Entity)
+		DeleteVehicle(RCCar.Entity)
+		DeleteEntity(RCCar.Driver)
 		RCCar.UnloadModels()
 	end
 end
